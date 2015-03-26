@@ -7,5 +7,6 @@ node_js:
 services: "redis"
 matrix:
   include:
+    - redis: "3.0"
     - redis: "2.8"
     - redis: "2.6"
