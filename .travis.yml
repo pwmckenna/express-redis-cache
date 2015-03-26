@@ -6,10 +6,8 @@ node_js:
     - "iojs"
 matrix:
   include:
-    - redis: "2.8"
-        env: REDIS_VERSION=2.8
-    - redis: "2.7"
-        env: REDIS_VERSION=2.7
+    - env: REDIS_VERSION=2.8
+    - env: REDIS_VERSION=2.7
 before_script:
     - sudo apt-get install redis-server=$REDIS_VERSION
     - sudo service redis-server start
