@@ -1,13 +1,25 @@
 language: node_js
-node_js:
-    - "0.12"
-    - "0.11"
-    - "0.10"
-    - "iojs"
 matrix:
   include:
-    - env: REDIS_VERSION=2.8
-    - env: REDIS_VERSION=2.7
+    - node_js: "0.12"
+      env: REDIS_VERSION=2.8
+    - node_js: "0.12"
+      env: REDIS_VERSION=2.7
+    - node_js: "0.11"
+      env: REDIS_VERSION=2.8
+    - node_js: "0.11"
+      env: REDIS_VERSION=2.7
+    - node_js: "0.10"
+      env: REDIS_VERSION=2.8
+    - node_js: "0.10"
+      env: REDIS_VERSION=2.7
+    - node_js: "iojs"
+      env: REDIS_VERSION=2.8
+    - node_js: "iojs"
+      env: REDIS_VERSION=2.7
 before_script:
-    - sudo apt-get install redis-server=$REDIS_VERSION
+    - sudo add-apt-repository ppa:chris-lea/redis-server
+    - sudo apt-get update
+    - echo $REDIS_VERSION
+    - sudo apt-get install redis-server
     - sudo service redis-server start
