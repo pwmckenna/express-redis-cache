@@ -5,11 +5,13 @@ node_js:
     - "0.10"
     - "iojs"
 env:
-  - REDIS_VERSION=2.7
+  - REDIS_VERSION=2.2
+  - REDIS_VERSION=2.4
+  - REDIS_VERSION=2.6
   - REDIS_VERSION=2.8
 before_script:
     - sudo add-apt-repository -y ppa:chris-lea/redis-server
     - sudo apt-get update
     - echo $REDIS_VERSION
-    - sudo apt-get -y install redis-server
+    - sudo apt-get -y install redis-server=$REDIS_VERSION
     - sudo service redis-server start
